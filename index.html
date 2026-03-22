@@ -232,7 +232,7 @@ canvas{width:100%!important;height:170px!important}
 <body>
 <div id="app">
   <div class="app-header">
-    <div class="app-logo">Ath<span>lete</span></div>
+    <div class="app-logo">Ath<span>lete</span> <span style="font-size:13px;color:var(--text3);font-weight:400;letter-spacing:0;text-transform:none;font-family:'DM Sans',sans-serif">9.2/10</span></div>
     <div class="header-right">
       <div class="unit-toggle">
         <button id="unit-kg" class="active" onclick="setUnit('kg')">KG</button>
@@ -247,7 +247,6 @@ canvas{width:100%!important;height:170px!important}
   <div id="page-plan" class="page"></div>
   <div id="page-history" class="page"></div>
   <div id="page-progress" class="page"></div>
-
   <nav class="bottom-nav">
     <button class="nav-btn active" onclick="showPage('today',this)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -315,46 +314,32 @@ canvas{width:100%!important;height:170px!important}
 // PROGRAM DATA
 // ═══════════════════════════════════════
 const PROGRAM = {
-  0:{name:'Sunday',focus:'Pull — Back, Biceps',color:'#7a3010',duration:60,type:'lifting',exercises:[
-    {id:'deadlift',name:'Conventional Deadlift',sets:4,reps:'4–5',tags:['back','hamstrings','glutes'],note:'Bar over mid-foot. Drive the floor away. Heaviest lift of the week.'},
-    {id:'pullups',name:'Weighted Pull-Ups',sets:4,reps:'6–8',tags:['lats','biceps'],note:'Full dead hang. Add weight when you can do 3×8 bodyweight cleanly.'},
-    {id:'bbrow',name:'Barbell Bent-Over Row',sets:4,reps:'6–8',tags:['mid back','rhomboids'],note:'Hip hinge, back parallel, pull to lower ribcage. Initiate with elbows.'},
-    {id:'facepull_curl',name:'Face Pulls + EZ Curl (superset)',sets:3,reps:'15+12',tags:['rear delt','biceps'],note:'Face pulls: rope to forehead, elbows high. Then EZ curls, 3-sec negative.'},
-    {id:'hammer_sun',name:'Hammer Curl',sets:3,reps:'10–12',tags:['brachialis'],note:'Neutral grip. Builds brachialis — pushes bicep up. Strict form.'}
+  0:{name:'Sunday',focus:'Lower B + Back & Biceps',color:'#7a3010',duration:70,type:'lifting',exercises:[
+    {id:'deadlift',name:'Conventional Deadlift',sets:4,reps:'5',tags:['hamstrings','glutes','back'],note:'Bar over mid-foot. Hinge, brace your core hard, drive the floor away. This is your most powerful muscle-building lift — respect it. Start lighter than you think and add weight weekly.'},
+    {id:'pullups',name:'Pull-Ups / Lat Pulldown',sets:4,reps:'6–8',tags:['lats','biceps'],note:'If you can\'t do 6 pull-ups yet, use the lat pulldown machine. Full dead hang at the bottom, chest to bar at the top. This builds the V-taper that looks athletic in a shirt.'},
+    {id:'bbrow',name:'Barbell Bent-Over Row',sets:4,reps:'8',tags:['mid back','rhomboids','biceps'],note:'Hip hinge with back near parallel. Pull to your lower ribcage. Think rowing — drive elbows back, not up. Your rowing background will make this feel natural fast.'},
+    {id:'bbcurl',name:'Barbell Curls',sets:3,reps:'10',tags:['biceps'],note:'Elbows pinned to sides. Full range of motion. 2-second lowering phase — this is where growth happens. Don\'t swing.'},
+    {id:'hammer_sun',name:'Hammer Curls',sets:3,reps:'10',tags:['brachialis','biceps'],note:'Neutral grip. Builds the brachialis which pushes the bicep up and adds arm thickness. Slow, controlled — no swinging.'}
   ]},
-  1:{name:'Monday',focus:'Push — Chest, Shoulders, Triceps',color:'#1a4a6b',duration:55,type:'lifting',exercises:[
-    {id:'bench',name:'Barbell Bench Press',sets:4,reps:'5–7',tags:['chest','triceps','front delt'],note:'Flat bench, grip wider than shoulders. Lower to lower chest. Track weight weekly.'},
-    {id:'ohp',name:'Overhead Barbell Press',sets:4,reps:'5–7',tags:['shoulders','triceps'],note:'Standing, core braced. Bar from collarbone to full overhead lockout.'},
-    {id:'incline_db',name:'Incline Dumbbell Press',sets:3,reps:'8–10',tags:['upper chest','front delt'],note:'30–45° bench. Elbows at 75°. 3-second descent.'},
-    {id:'lat_skull',name:'Lateral Raises + Skull Crushers (superset)',sets:3,reps:'12+10',tags:['medial delt','triceps'],note:'Raises to shoulder height, then immediately skull crushers. 90 sec rest.'},
-    {id:'pushdown',name:'Cable Tricep Pushdown (rope)',sets:3,reps:'12–15',tags:['triceps'],note:'Elbows pinned. Spread rope at bottom for full contraction.'}
+  1:{name:'Monday',focus:'Lower A — Quads, Hamstrings, Glutes',color:'#2d6b3a',duration:60,type:'lifting',exercises:[
+    {id:'squat',name:'Barbell Back Squat',sets:4,reps:'6–8',tags:['quads','glutes','hamstrings'],note:'Shoulder-width stance, toes 20–30° out. Hit parallel or below every rep. This is the #1 exercise for rebuilding your athletic legs. Add weight every week — even 2.5kg counts.'},
+    {id:'rdl',name:'Romanian Deadlift',sets:3,reps:'10',tags:['hamstrings','glutes'],note:'Bar against your legs the whole way. Push your hips back until you feel a deep hamstring stretch. Slow 3-count lowering. These will make your hamstrings sore in ways you\'ve forgotten.'},
+    {id:'lunges',name:'Walking Dumbbell Lunges',sets:3,reps:'12 each leg',tags:['quads','glutes'],note:'Long stride. Rear knee nearly touches the floor. Great for quad separation and glute development. Bodyweight first if needed.'},
+    {id:'calf',name:'Calf Raises',sets:3,reps:'15',tags:['calves'],note:'Full range — all the way up, all the way down. Pause at the top and squeeze. Calves respond to slow, controlled reps more than anything.'},
+    {id:'plank',name:'Plank',sets:3,reps:'45s',tags:['core','abs'],note:'Brace your entire core like you\'re about to get punched. Don\'t let hips sag or pike up. Progress to 60s then 90s over weeks.'}
   ]},
-  2:{name:'Tuesday',focus:'Legs — Quads, Hamstrings, Glutes, Calves',color:'#2d6b3a',duration:65,type:'lifting',exercises:[
-    {id:'squat',name:'Barbell Back Squat',sets:5,reps:'5',tags:['quads','glutes','hamstrings'],note:'High bar, shoulder-width, toes 20–30° out. At minimum parallel depth. King lift.'},
-    {id:'rdl',name:'Romanian Deadlift (RDL)',sets:4,reps:'8–10',tags:['hamstrings','glutes'],note:'Hinge at hips, bar against legs, push hips back for deep hamstring stretch.'},
-    {id:'lunges',name:'Walking Dumbbell Lunges',sets:3,reps:'12 each',tags:['quads','glutes'],note:'Long stride, rear knee to floor. Mirrors tennis split-step.'},
-    {id:'hipthrust',name:'Barbell Hip Thrust',sets:3,reps:'10–12',tags:['glutes','hamstrings'],note:'Bar on hips. Drive up explosively, 1-sec squeeze at top.'},
-    {id:'curl_ext',name:'Leg Curl + Leg Extension (superset)',sets:3,reps:'12+12',tags:['hamstrings','quads'],note:'Curl first with 3-sec negative. Then extension with squeeze at top.'},
-    {id:'calf',name:'Standing Calf Raise',sets:4,reps:'15–20',tags:['calves'],note:'Full range. 2 sec up, 2 sec down. Pause and squeeze at top.'}
+  2:{name:'Tuesday',focus:'Rowing Intervals — Endurance Engine',color:'#1a4a6b',duration:45,type:'cardio',exercises:[]},
+  3:{name:'Wednesday',focus:'Upper A — Chest, Shoulders, Triceps & Biceps',color:'#6b2d7a',duration:60,type:'lifting',exercises:[
+    {id:'bench',name:'Barbell Bench Press',sets:4,reps:'6–8',tags:['chest','triceps','front delt'],note:'Grip slightly wider than shoulders. Lower to lower chest with control. Drive up explosively. Track your weight every session — this should climb steadily.'},
+    {id:'ohp',name:'Overhead Press',sets:3,reps:'8',tags:['shoulders','triceps'],note:'Standing if possible — recruits more core. Bar from collarbone to full lockout overhead. Core stays braced the entire time.'},
+    {id:'laterals',name:'Lateral Raises',sets:3,reps:'15',tags:['medial delt'],note:'Light weight, slow and controlled. Raise to shoulder height. These build the boulder shoulder look. Don\'t swing or shrug.'},
+    {id:'skull',name:'Skull Crushers',sets:3,reps:'10',tags:['triceps'],note:'EZ bar to forehead, elbows close together and pointing at the ceiling. Slow lowering. Triceps are 2/3 of your upper arm — this is your main arm-size lift.'},
+    {id:'incline_curl',name:'Incline Dumbbell Curls',sets:3,reps:'10',tags:['biceps long head'],note:'Arms hang fully below you before each rep. This stretches the bicep long head for maximum peak development. Best bicep exercise for arm aesthetics.'},
+    {id:'pushdown',name:'Tricep Pushdowns (rope)',sets:3,reps:'12',tags:['triceps'],note:'Elbows pinned to sides. Spread the rope at the bottom for a full tricep contraction. Great finisher — triceps fully pumped at this point.'},
+
   ]},
-  3:{name:'Wednesday',focus:'Arms & Core — Biceps, Triceps, Abs',color:'#6b2d7a',duration:55,type:'lifting',exercises:[
-    {id:'ez_curl',name:'EZ Bar Curl',sets:4,reps:'8–10',tags:['biceps'],note:'Elbows pinned. Full ROM. 3-second lowering every rep.'},
-    {id:'incline_curl',name:'Incline Dumbbell Curl',sets:3,reps:'10–12',tags:['biceps long head'],note:'Arms hang below before each rep. Best for bicep peak.'},
-    {id:'hammer_wed',name:'Hammer Curl',sets:3,reps:'12',tags:['brachialis'],note:'Neutral grip, slow negative. Third bicep session this week.'},
-    {id:'dips',name:'Parallel Bar Dips',sets:4,reps:'8–10',tags:['triceps','lower chest'],note:'Stay upright for tricep focus. Full lockout. Add weight when ready.'},
-    {id:'oh_ext',name:'Overhead Tricep Extension',sets:3,reps:'10–12',tags:['triceps long head'],note:'Both hands on one dumbbell. Elbows close to head. Deep stretch.'},
-    {id:'core_circuit',name:'Core Circuit (4 exercises × 3 rounds)',sets:3,reps:'circuit',tags:['abs','obliques'],note:'Cable crunch (15) → Hanging leg raise (12) → Russian twist (20) → Plank (45–60s). 45 sec between rounds.'}
-  ]},
-  4:{name:'Thursday',focus:'Pull + Legs — Back, Posterior Chain',color:'#7a5a10',duration:55,type:'lifting',
-    cardio:{name:'Ergo (Rowing Machine)',duration:20,detail:'Steady state. Rate 18–20 spm weeks 1–4, then 22–24 spm.'},
-    exercises:[
-    {id:'pullups_thu',name:'Pull-Ups / Weighted Pull-Ups',sets:4,reps:'6–8',tags:['lats','biceps'],note:'Match Sunday weight. V-taper comes from lat width.'},
-    {id:'cable_row_face',name:'Cable Row + Face Pulls (superset)',sets:3,reps:'10+15',tags:['mid back','rear delt'],note:'Row to belly button, squeeze shoulder blades. Immediately face pulls.'},
-    {id:'goblet',name:'Goblet Squat',sets:3,reps:'12–15',tags:['quads','glutes'],note:'Dumbbell at chest. Maintains 3× weekly leg frequency without heavy spinal load.'},
-    {id:'db_rdl',name:'Dumbbell Romanian Deadlift',sets:3,reps:'10–12',tags:['hamstrings','glutes'],note:'Same hinge as Tuesday but lighter. Twice-weekly RDLs accelerate hamstring development.'},
-    {id:'leg_press_high',name:'Leg Press (high foot placement)',sets:3,reps:'10–12',tags:['glutes','hamstrings'],note:'Feet high shifts load to glutes/hamstrings — different from Tuesday.'}
-  ]},
-  5:{name:'Friday',focus:'Active Recovery — Cardio Only',color:'#4a6b1a',duration:50,type:'cardio',exercises:[]},
+  4:{name:'Thursday',focus:'HIIT — Sprint & Conditioning',color:'#7a5a10',duration:35,type:'cardio',exercises:[]},
+  5:{name:'Friday',focus:'Active Recovery — Easy 45 Min Run',color:'#4a6b1a',duration:50,type:'cardio',exercises:[]},
   6:{name:'Saturday',focus:'Full Rest Day',color:'#555048',duration:0,type:'rest',exercises:[]}
 };
 
@@ -370,7 +355,7 @@ const SKIP_EXERCISES = [
 
 // MET values for gym sessions
 const MET = {lifting:5.0, rowing:7.0, running:8.5};
-const DEFAULT_WT = 85; // kg
+const DEFAULT_WT = 88; // kg
 
 // ═══════════════════════════════════════
 // STATE
@@ -473,7 +458,7 @@ function renderPlan(di){
   let body = `<div class="plan-page">`;
 
   // Hero
-  const calEst = day.type==='rest'?0:day.type==='cardio'?metCal(MET.running,wkg,52):metCal(MET.lifting,wkg,day.duration||55)+(day.cardio?metCal(MET.rowing,wkg,day.cardio.duration):0);
+  const calEst = day.type==='rest'?0:day.type==='cardio'?(di===2?metCal(MET.rowing,wkg,42):di===4?metCal(MET.running,wkg,35):metCal(MET.running,wkg,45)):metCal(MET.lifting,wkg,day.duration||55)+(day.cardio?metCal(MET.rowing,wkg,day.cardio.duration):0);
   body += `<div class="plan-hero" style="background:linear-gradient(135deg,var(--bg2) 0%,${day.color}22 100%)">
     <div class="plan-day-name" style="color:${day.color}">${day.name}${di===today?'<span class="today-badge">Today</span>':''}</div>
     <div class="plan-focus">${day.focus}</div>
@@ -492,16 +477,29 @@ function renderPlan(di){
       <div class="plan-rest-sub">Muscles grow during recovery, not during training.<br>Sleep 8+ hours. Hit your protein target. No training.</div>
     </div>`;
   } else if(day.type==='cardio'){
-    body += `<div class="sh">Active Recovery</div>
-    <div class="plan-cardio-card">
-      <div class="plan-cardio-name">🏃 Long Run — Option A</div>
-      <div class="plan-cardio-detail">45–60 min steady-state at 60–65% max HR. Conversational pace. Builds tennis base fitness and leg endurance.</div>
-    </div>
-    <div class="plan-cardio-card">
-      <div class="plan-cardio-name">🚣 Ergo Session — Option B</div>
-      <div class="plan-cardio-detail">Weeks 1–4: all steady state at easy pace. Week 5+: 20 min steady + 4×5 min at rate 22–24 spm with 2 min recovery between each. Drive hard through heels on every stroke.</div>
-    </div>
-    <div style="padding:14px 16px;font-size:13px;color:var(--text3);font-style:italic">Choose one option. Alternate run and ergo each week.</div>`;
+    if(di===2){
+      body += `<div class="sh">Rowing Intervals</div>
+      <div class="plan-cardio-card"><div class="plan-cardio-name">🚣 Warm-Up Row</div><div class="plan-cardio-detail">5 min easy. Technique focus.</div></div>
+      <div class="plan-cardio-card" style="border-left-color:var(--accent)"><div class="plan-cardio-name">🔥 6 × 500m Intervals</div><div class="plan-cardio-detail">Hard effort, 90s rest between pieces. Track your split time each session.</div></div>
+      <div class="plan-cardio-card"><div class="plan-cardio-name">🚣 Steady State Row</div><div class="plan-cardio-detail">15 min moderate. Rate 18–20 spm. Aerobic base builder.</div></div>
+      <div class="plan-cardio-card"><div class="plan-cardio-name">Cool-Down + Stretch</div><div class="plan-cardio-detail">5 min easy row → hip flexors, hamstrings, lats.</div></div>`;
+    } else if(di===4){
+      body += `<div class="sh">HIIT Session</div>
+      <div class="plan-cardio-card"><div class="plan-cardio-name">🏃 Warm-Up Jog</div><div class="plan-cardio-detail">5 min easy. Do not skip — cold sprints cause injuries.</div></div>
+      <div class="plan-cardio-card" style="border-left-color:var(--accent)"><div class="plan-cardio-name">⚡ 8 × 200m Sprints</div><div class="plan-cardio-detail">~40s each at 85–90% effort. 60–90s rest between. Build from 5–6 sprints in week 1.</div></div>
+      <div class="plan-cardio-card" style="border-left-color:#c9a84c"><div class="plan-cardio-name">💪 Bodyweight Circuit × 3 Rounds</div><div class="plan-cardio-detail">15 burpees → 15 jumping lunges → 15 push-ups. No rest between exercises. 90s between rounds.</div></div>
+      <div class="plan-cardio-card"><div class="plan-cardio-name">Cool-Down Walk + Stretch</div><div class="plan-cardio-detail">5 min walk → calves, quads, hip flexors.</div></div>`;
+    } else {
+      body += `<div class="sh">Active Recovery</div>
+      <div class="plan-cardio-card">
+        <div class="plan-cardio-name">🏃 Easy 45 Min Run</div>
+        <div class="plan-cardio-detail">Conversational pace the entire time. Heart rate 60–65% max. If you can't hold a sentence, you're going too fast. Fat-burning, recovery, aerobic base — all in one session.</div>
+      </div>
+      <div class="plan-cardio-card">
+        <div class="plan-cardio-name">Post-Run Stretch</div>
+        <div class="plan-cardio-detail">Hip flexors · Hamstrings · Calves — 5 min minimum. Tomorrow is full rest so do this properly.</div>
+      </div>`;
+    }
   } else {
     // Lifting day — warmup
     body += `<div class="sh">Warmup</div>
@@ -579,20 +577,19 @@ function renderPlan(di){
 
 function getWarmup(di){
   const warmups = {
-    0:'5 min easy rowing machine · Dead hangs from pull-up bar 2×20 sec · 10× band pull-aparts',
-    1:'5 min light jog or bike · 2×10 bodyweight push-ups (slow, full ROM) · 10× arm circles each direction',
-    2:'5 min stationary bike · 10× bodyweight squats, 10× glute bridges, 10× leg swings each leg · 1 warmup squat set at ~50% working weight',
-    3:'3 min light bike or jump rope · 10× wrist circles each direction · 10× band pull-aparts',
-    4:'5 min easy rowing machine · 10× band pull-aparts · 1 dead hang 20 sec',
-    5:'Start easy — first 5–10 min very light pace before building to workout intensity',
+    0:'5 min easy rowing machine · Dead hangs 2×20 sec · 10× band pull-aparts · 1 light deadlift set at 50% working weight',
+    1:'5 min stationary bike · 10× bodyweight squats, 10× glute bridges, 10× leg swings each leg · 1 warmup squat set at ~50% working weight',
+    2:'Rowing intervals day — start 5 min very easy on the erg before intervals begin.',
+    3:'3 min light bike or jump rope · 10× arm circles each direction · 2×10 bodyweight push-ups slow and controlled',
+    4:'HIIT day — 5 min easy jog to warm up before sprints. Do not skip this.',
+    5:'Easy run — start at very easy pace for first 5–10 min before settling into rhythm.',
     6:'Rest day — gentle walk or light stretching only'
   };
   return warmups[di]||'5 min light cardio to elevate heart rate';
 }
 
 function getRestTime(ex, di){
-  // Compound heavy lifts get longer rest
-  const heavy = ['deadlift','squat','bench','ohp','pullups','pullups_thu','bbrow'];
+  const heavy = ['deadlift','squat','bench','ohp','pullups','bbrow'];
   const isHeavy = heavy.includes(ex.id);
   if(isHeavy) return '2–3 min';
   if(ex.reps==='circuit') return '45 sec between rounds';
@@ -607,7 +604,7 @@ function renderToday(){
   const dateStr=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
   const done=sess.completedExercises.length, total=day.exercises.length;
   const wkg=curWeightKg();
-  const cal=day.type==='rest'?0:day.type==='cardio'?metCal(MET.running,wkg,52):metCal(MET.lifting,wkg,day.duration||55)+(day.cardio?metCal(MET.rowing,wkg,day.cardio.duration):0);
+  const cal=day.type==='rest'?0:day.type==='cardio'?(di===2?metCal(MET.rowing,wkg,42):di===4?metCal(MET.running,wkg,35):metCal(MET.running,wkg,45)):metCal(MET.lifting,wkg,day.duration||55)+(day.cardio?metCal(MET.rowing,wkg,day.cardio.duration):0);
 
   let h='';
   if(!localStorage.getItem('hint_gone')) h+=`<div class="install-hint"><div style="font-size:18px;flex-shrink:0">📲</div><div style="font-size:12px">Open in <strong>Safari</strong> → Share → <strong>"Add to Home Screen"</strong> to install as an app.</div><button class="ih-close" onclick="localStorage.setItem('hint_gone','1');this.closest('.install-hint').remove()">×</button></div>`;
@@ -643,18 +640,61 @@ function renderToday(){
   }
 
   if(day.type==='cardio'){
-    h+=`<div class="sh">Active Recovery</div>
-    <div class="cardio-card" style="border-left-color:#4a6b1a">
-      <div class="cc-title">🏃 Long Run</div>
-      <div class="cc-detail">45–60 min steady-state at 60–65% max HR. Conversational pace.</div>
-      <div class="cc-cal">~${metCal(MET.running,wkg,52)} kcal at ${dispWeight(wkg)}</div>
-    </div>
-    <div class="cardio-card" style="border-left-color:#4a6b1a">
-      <div class="cc-title">🚣 Ergo Session</div>
-      <div class="cc-detail">Wk 1–4: all steady state. Wk 5+: 20 min steady + 4×5 min at rate 22–24 with 2 min recovery.</div>
-      <div class="cc-cal">~${metCal(MET.rowing,wkg,52)} kcal at ${dispWeight(wkg)}</div>
-    </div>
-    <div style="padding:14px;font-size:13px;color:var(--text3);font-style:italic;text-align:center">Choose one. Alternate run and ergo each week.</div>`;
+    // Tuesday = rowing intervals (di=2), Thursday = HIIT (di=4), Friday = easy run (di=5)
+    if(di===2){
+      h+=`<div class="sh">Rowing Intervals</div>
+      <div class="cardio-card" style="border-left-color:#1a4a6b">
+        <div class="cc-title">🚣 Warm-Up Row</div>
+        <div class="cc-detail">5 min easy. Focus on technique — legs, body, arms. Let the stroke rate come naturally.</div>
+        <div class="cc-cal">~${metCal(MET.rowing,wkg,5)} kcal</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:var(--accent)">
+        <div class="cc-title">🔥 6 × 500m Intervals</div>
+        <div class="cc-detail">Hard effort each piece. 90 seconds rest between. Track your split time — aim to keep them consistent. Weeks 1–2: survival mode is fine. Week 5+: start racing your previous splits.</div>
+        <div class="cc-cal">~${metCal(MET.rowing,wkg,22)} kcal</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:#2d6b3a">
+        <div class="cc-title">🚣 Steady State Row</div>
+        <div class="cc-detail">15 min at moderate pace. Conversational effort. Rate 18–20 spm. This builds your aerobic base.</div>
+        <div class="cc-cal">~${metCal(MET.rowing,wkg,15)} kcal</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:#555">
+        <div class="cc-title">Cool-Down + Stretch</div>
+        <div class="cc-detail">5 min easy row then: hip flexors, hamstrings, lats. Don't skip this — your rowing posture needs it.</div>
+      </div>`;
+    } else if(di===4){
+      h+=`<div class="sh">HIIT Session</div>
+      <div class="cardio-card" style="border-left-color:#555">
+        <div class="cc-title">🏃 Warm-Up Jog</div>
+        <div class="cc-detail">5 min easy jog. Don't skip — cold sprints cause injuries.</div>
+        <div class="cc-cal">~${metCal(MET.running,wkg,5)} kcal</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:var(--accent)">
+        <div class="cc-title">⚡ 8 × 200m Sprints</div>
+        <div class="cc-detail">~40 seconds each at 85–90% effort. 60–90 seconds rest between. This is your fat-burning weapon. Weeks 1–2: 5 or 6 sprints is fine. Build to 8.</div>
+        <div class="cc-cal">~${metCal(MET.running,wkg,20)} kcal</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:#c9a84c">
+        <div class="cc-title">💪 Bodyweight Circuit × 3 Rounds</div>
+        <div class="cc-detail">15 burpees → 15 jumping lunges → 15 push-ups. No rest between exercises. 90 sec between rounds. This is supposed to be hard. That's the point.</div>
+        <div class="cc-cal">~${metCal(5.0,wkg,12)} kcal</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:#555">
+        <div class="cc-title">Cool-Down Walk + Stretch</div>
+        <div class="cc-detail">5 min walk then stretch: calves, quads, hip flexors. Your legs take a beating on this day.</div>
+      </div>`;
+    } else {
+      h+=`<div class="sh">Active Recovery Run</div>
+      <div class="cardio-card" style="border-left-color:#4a6b1a">
+        <div class="cc-title">🏃 Easy 45 Min Run</div>
+        <div class="cc-detail">Conversational pace the entire time — if you can't hold a sentence, slow down. Heart rate 60–65% max. This burns fat, aids recovery, and builds your aerobic base. Do not push pace here.</div>
+        <div class="cc-cal">~${metCal(MET.running,wkg,45)} kcal at ${dispWeight(wkg)}</div>
+      </div>
+      <div class="cardio-card" style="border-left-color:#555">
+        <div class="cc-title">Post-Run Stretch</div>
+        <div class="cc-detail">Hip flexors · Hamstrings · Calves · 5 min minimum. Tomorrow is rest — do this properly.</div>
+      </div>`;
+    }
     h+=renderSkipPanel(sess);
     document.getElementById('page-today').innerHTML=h;
     return;
@@ -965,7 +1005,7 @@ function finishSession(){
   // Store calories at time of finish (locked to current weight)
   let cal=0;
   if(day.type==='rest') cal=0;
-  else if(day.type==='cardio') cal=metCal(MET.running,wkg,52);
+  else if(day.type==='cardio') cal=di===2?metCal(MET.rowing,wkg,42):di===4?metCal(MET.running,wkg,35):metCal(MET.running,wkg,45);
   else cal=metCal(MET.lifting,wkg,day.duration||55)+(day.cardio?metCal(MET.rowing,wkg,day.cardio.duration):0);
   // Add skip exercise calories
   const skipCal=(sess.skipExercises||[]).reduce((a,e)=>a+e.kcal,0);
@@ -1241,6 +1281,7 @@ function importData(ev){
   };
   r.readAsText(file);
 }
+
 
 // ═══════════════════════════════════════
 // INIT
