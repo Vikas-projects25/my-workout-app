@@ -375,7 +375,7 @@ const PLAN = {
     {n:"Goblet squat",       s:3, r:"15",  note:"Near failure",                          t:"strength"},
     {n:"Push-up complex",    s:3, r:"15",  note:"Wide to narrow to diamond. Last set to failure", t:"strength"},
     {n:"Farmers carry",      s:3, r:"30m", note:"Heavy and controlled",                 t:"strength"},
-    {n:"Burpees",            s:3, r:"12",  note:"Hard effort",                          t:"cardio"},
+    {n:"Burpees",            s:3, r:"12",  note:"Hard effort",                          t:"strength"},
     {n:"Plank to push-up",   s:3, r:"10",  note:"Last set to failure",                  t:"strength"}
   ]}
 };
@@ -585,7 +585,7 @@ function saveSession(){
   sd(d); logs={}; updSummary();
   showToast('Session saved!');
   // Rebuild cards so checkmarks + green borders reset visually
-  const dn2=DAYS[new Date().getDay()]; buildExercises(dn2,PLAN[dn2]);
+  buildExercises(dn,PLAN[dn]);
   renderHist(); renderPreview();
   // Refresh charts if progress tab is open
   if(document.getElementById('page-progress').classList.contains('active')) drawAll();
@@ -673,6 +673,7 @@ function saveQL(){
   selQ=null;
   document.getElementById('qForm').style.display='none';
   document.querySelectorAll('.qbtn').forEach(b=>b.classList.remove('sel'));
+  renderHist();
   renderPreview();
   if(document.getElementById('page-progress').classList.contains('active')) drawCal();
 }
