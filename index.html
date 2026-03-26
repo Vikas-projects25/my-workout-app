@@ -542,9 +542,10 @@ function markDone(ei){
     const note=(document.getElementById('cn'+ei)||{}).value||'';
     const m=note.match(/(\d+)/);
     // Fallback: guess duration from exercise name if user left note blank
-    let dur=m?parseInt(m[1]):20;
-    if(!m&&ex.n.toLowerCase().includes('45')) dur=45;
-    if(!m&&ex.n.toLowerCase().includes('sprint')) dur=20;
+    // fallback: read duration from ex.r e.g. '45 min' -> 45, '5 min' -> 5
+    let dur=20;
+    if(m){ dur=parseInt(m[1]); }
+    else{ const rm=ex.r.match(/(\d+)/); if(rm) dur=parseInt(rm[1]); }
     cals=Math.round(9.0*w*dur/60);
     logs[ex.n]={note,calories:cals};
 
